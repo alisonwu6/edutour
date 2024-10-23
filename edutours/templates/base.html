@@ -31,17 +31,9 @@
               City In Formosa
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{url_for('main.city')}}">Taipei</a>
-              <a class="dropdown-item" href="#">New Taipei</a>
-              <a class="dropdown-item" href="#">Taoyuan</a>
-              <a class="dropdown-item" href="#">Taichung</a>
-              <a class="dropdown-item" href="#">Tainan</a>
-              <a class="dropdown-item" href="#">Kaohsiung</a>
-              <a class="dropdown-item" href="#">Keelung</a>
-              <a class="dropdown-item" href="#">Hsinchu</a>
-              <a class="dropdown-item" href="#">Chiayi</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Formosa Islands</a>
+              {% for city in cities %}
+                <a class="dropdown-item" href="/city/{{ city.id }}">{{ city.name }}</a>
+              {% endfor %}
             </div>
           </li>
           <li class="nav-item">
