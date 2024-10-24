@@ -25,26 +25,27 @@
 </div>
 {% endblock %} {% block main %}
 <div class="row">
+  {% for tour in tours%}
   <div class="col-12 col-sm-6 col-lg-4 mb-4">
     <div class="card">
       <img
-        src="{{url_for('static', filename='img/' + 'xiao-long-bao.jpeg')}}"
+        src="{{url_for('static', filename='img/' + tour.image)}}"
         class="card-img-top"
-        alt="xiao long bao"
+        alt="{{ tour.name }}"
       />
       <div class="card-body d-flex flex-column justify-space-around">
-        <h5 class="card-title">Xiao Long Bao</h5>
+        <h5 class="card-title">{{ tour.name }}</h5>
         <p class="card-text">
-          A must-try soup dumplings in Taiwan. Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit.
+          {{ tour.description }}
         </p>
         <a
-          href="{{url_for('main.tours')}}"
+          href="{{url_for('main.tourdetail')}}"
           class="btn btn-outline-primary btn-block"
           >Read More</a
         >
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
 {% endblock %}
