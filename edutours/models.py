@@ -12,14 +12,17 @@ class City:
         return f"ID: {self.id}, Name: {self.name}, Description: {self.description}, Image: {self.image} \n"
 
 class Tour:
-    def __init__(self, id, name, description, image, price, city, date):
+    def __init__(self, id, name, description, image, price, city, date_of_week, time, languages, has_meal):
         self.id = id
         self.name = name
         self.description = description
         self.image = image
         self.price = price
         self.city = city
-        self.date = date
+        self.date_of_week = date_of_week
+        self.time = time
+        self.languages = languages
+        self.has_meal = has_meal
     
     def get_tour_details(self):
         return str(self)

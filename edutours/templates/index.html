@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block head %}
-<div class="jumbotron text-center jumbotron_bg">
-  <h1 class="display-4">Discovery Formosa Cuisine</h1>
+<div class="jumbotron text-center jumbotron_bg index_jumbotron">
+  <h1 class="display-4">Discovery Taiwan Cuisine</h1>
   <p class="lead">
-    Visit Taiwan and learn how to cook Taiwanese cuisine. Traveling and learning
-    at the same time.
+    Visit Taiwan and learn how to cook Taiwanese cuisine. <br />
+    Traveling and learning at the same time.
   </p>
   <form
     class="d-flex m-auto"
@@ -23,8 +23,8 @@
     </button>
   </form>
 </div>
-{% endblock %} 
-{% block main %}
+{% endblock %} {% block main %}
+<h1 class="my-5 text-center">Top 3 Cities</h1>
 <div class="row">
   {% for city in cities%}
   <div class="col-12 col-sm-6 col-lg-4 mb-4">
@@ -36,9 +36,7 @@
       />
       <div class="card-body d-flex flex-column justify-space-around">
         <h5 class="card-title">{{ city.name }}</h5>
-        <p class="card-text">
-          {{ city.description }}
-        </p>
+        <p class="card-text">{{ city.description }}</p>
         <a
           href="/city/{{ city.id }}"
           class="btn btn-outline-primary btn-block"

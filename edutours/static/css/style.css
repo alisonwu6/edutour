@@ -9,38 +9,26 @@
   height: 200px;
 }
 
-/* Home */
-.home_page {
-  .jumbotron_bg {
-    /* background: url("/img/taipei.jpeg") no-repeat right bottom;
-    text-align: center;
-    background-size: cover;
-    color: white; */
-  }
+.index_jumbotron {
+  background: url("../img/taipei.jpeg") no-repeat right bottom;
+  text-align: center;
+  background-size: cover;
+  color: white;
 }
 
-.city_page {
-  .jumbotron_bg {
-    /* background: url("/img/taipei.jpeg") no-repeat left top;
-    text-align: center;
-    background-size: cover;
-    color: white; */
-  }
+.jumbotron_bg {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
-.detail_page {
-  .jumbotron_bg {
-    /* background: url("/img/taipei.jpeg") no-repeat left center;
-    text-align: center;
-    background-size: cover;
-    color: white; */
-  }
-  .detail_box {
-    img {
-      display: block;
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
+.detail_box {
+  margin: 50px 0;
+  img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
   }
 }
