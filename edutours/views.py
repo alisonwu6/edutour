@@ -15,7 +15,7 @@ tour2 = Tour('2', 'Xiao Long Bao', 'Learn to craft delicious Xiao Long Bao in th
 tour3 = Tour('3', 'Sun Cake', 'Discover the secrets behind making traditional Taichung Sun Cakes, a flaky pastry filled with maltose and sweet flavors, in this fun baking class.', 'sun_cake.jpg', 50.00, taichung, ['MON', 'WED'], "14:00 - 16:00", ["English, Mandarin"], True)
 tour4 = Tour('4', 'Taichung Street Food Experience', 'Join our street food cooking class to learn how to make popular Taichung snacks like Popcorn Chicken and Grilled Corn, bringing the night market experience to your kitchen.', 'taichung_street_food.jpg', 45.00, taichung, ['MON', 'WED'], "14:00 - 16:00", ["English, Mandarin"], True)
 tour5 = Tour('5', 'Kaohsiung Seafood Cooking Class', 'Dive into the world of fresh seafood with our expert chef as you learn to prepare classic Kaohsiung seafood dishes using local ingredients.', 'kaohsiung_seafood.jpg', 70.00, kaohsiung, ['MON', 'WED'], "14:00 - 16:00", ["English, Mandarin"], True)
-tour6 = Tour('6', 'Kaohsiung Fruit Dessert Workshop', 'Learn to create stunning desserts using seasonal fruits from Kaohsiung in this hands-on workshop that celebrates local flavors.', 'kaohsiung_fruit_dessert.jpg', 55.00, kaohsiung, ['MON', 'WED'], "14:00 - 16:00", ["English, Mandarin"], False)
+tour6 = Tour('6', 'Kaohsiung Fruit Dessert', 'Learn to create stunning desserts using seasonal fruits from Kaohsiung in this hands-on workshop that celebrates local flavors.', 'kaohsiung_fruit_dessert.jpg', 55.00, kaohsiung, ['MON', 'WED'], "14:00 - 16:00", ["English, Mandarin"], False)
 
 # List of cities and tours
 cities = [taipei, taichung, kaohsiung]
