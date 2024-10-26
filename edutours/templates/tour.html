@@ -23,12 +23,10 @@
       </div>
       <div class="">Price: ${{tour.price}}/per person</div>
       <div class="">Language offered: {{ tour.languages | join(', ') }}</div>
-      <button
-        class="btn btn-primary btn-block mt-3"
-        type="button"
-      >
-        Add to cart
-      </button>
+      <form action="{{url_for('main.order')}}">
+        <input type="hidden" id="tour_id" name="tour_id" value="{{tour.id}}">
+        <input class="btn btn-primary" type="submit" value="Add to cart">
+      </form>
     </div>
   </div>
 </div>
