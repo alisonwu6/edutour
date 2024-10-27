@@ -17,7 +17,6 @@ def city(city_id):
     cities = db.session.scalars(db.select(City).order_by(City.id)).all()
     tours = db.session.scalars(db.select(Tour).where(Tour.city_id == city_id)).all()
     selected_city = db.session.get(City, city_id)
-    print("selected_city", selected_city)
     return render_template('city.html', cities=cities, tours=tours, city=selected_city)
 
 @main_bp.route('/tour/<int:tour_id>/')
@@ -31,15 +30,13 @@ def order():
     cities = db.session.scalars(db.select(City).order_by(City.id)).all()
     tour_id = request.values.get('tour_id')
     print(f'Values: {tour_id}')
-    # Retrieve order if there is one
+    # Check if there is an existing order Id 
     if 'order_id' in session.keys():
         order = db.session.scalar(db.select(Order).where(Order.id==session['order_id']))
-        # Order will be None if order_id/session is stale
     else:
-        # There is no order
         order = None
 
-    # Create new order if needed
+    # If not, create new order
     if order is None:
         order = Order(status=False, first_name='', surname='', email='', phone='', total_cost=0.00, date=datetime.now())
         try:
@@ -104,7 +101,7 @@ def deleteorder():
     else:
         flash("There's no order to delete!")
         return redirect(request.referrer)
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.order'))
 
 # Complete the order
 @main_bp.route('/checkout', methods=['GET', 'POST'])

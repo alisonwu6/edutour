@@ -8,12 +8,20 @@
         alt="{{tour.name}}}"
       />
     </div>
-    <div class="col-12 col-sm-6 d-flex flex-column justify-content-between">
+    <div class="col-12 col-sm-6 d-flex flex-column">
       <h3>{{tour.name}}</h3>
       <div class="desc pb-3">{{tour.description}}</div>
+      <div class="">
+        A meal included: {% if tour.has_meal %}
+        <span>Yes</span>
+        {% else %}
+        <span>No</span>
+        {% endif %}
+      </div>
+      <div class="">Language offered: {{ tour.languages }}</div>
       <div class="">Price: ${{tour.price}}/per person</div>
       <form
-        class="ml-auto"
+        class="mt-3"
         action="{{url_for('main.order')}}"
       >
         <input
@@ -23,7 +31,7 @@
           value="{{tour.id}}"
         />
         <input
-          class="btn btn-primary"
+          class="d-block btn btn-primary"
           type="submit"
           value="Add to cart"
         />

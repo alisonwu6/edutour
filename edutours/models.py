@@ -5,7 +5,7 @@ class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     description = db.Column(db.String(500), nullable=False)
-    image = db.Column(db.String(60), nullable=False, default = 'defaultcity.jpg')
+    image = db.Column(db.String(60), nullable=False, default = 'default_city.jpg')
     tours = db.relationship('Tour', backref='city', cascade="all, delete-orphan")
 
     def __repr__(self):
@@ -25,6 +25,8 @@ class Tour(db.Model):
     image = db.Column(db.String(60), nullable=False)
     price = db.Column(db.Float, nullable=False)
     date = db.Column(db.DateTime, nullable=False)
+    languages = db.Column(db.String, nullable=False)
+    has_meal = db.Column(db.Boolean, default=True)
     city_id = db.Column(db.Integer, db.ForeignKey('cities.id'))
     orders = db.relationship("Order", secondary=orderdetails, back_populates='tours')
     
@@ -41,6 +43,7 @@ class Order(db.Model):
     phone = db.Column(db.String(32))
     total_cost = db.Column(db.Float)
     date = db.Column(db.DateTime)
+    contact_time = db.Column(db.Enum('morning', 'afternoon', 'evening'), nullable=False, default='morning')
     tours = db.relationship("Tour", secondary=orderdetails, back_populates='orders')
     
     def __repr__(self):
