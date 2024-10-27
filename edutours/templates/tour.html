@@ -23,7 +23,7 @@
       </div>
       <div class="">Price: ${{tour.price}}/per person</div>
       <div class="">Language offered: {{ tour.languages | join(', ') }}</div>
-      <form action="{{url_for('main.order')}}">
+      <form class="ml-auto"action="{{url_for('main.order')}}">
         <input type="hidden" id="tour_id" name="tour_id" value="{{tour.id}}">
         <input class="btn btn-primary" type="submit" value="Add to cart">
       </form>

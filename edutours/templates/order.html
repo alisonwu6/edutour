@@ -1,54 +1,52 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<!-- display contents of user basket -->
 <section>  
     <div class="container">
-        <div class="row co-12 d-flex mt-2 mb-2">
-            <h3>Shopping Basket</h3>
-        </div>
+        <h1 class="text-center my-5">Shopping Basket</h1>
 
-        <!-- each tour on seperate row -->
+        {% if order.tours | length == 0 %}
+            <p class="text-center">No tours selected yet.</p>
+            <div class="row justify-content-center">
+                <a href="{{url_for('main.index')}}" class="btn btn-primary">Find Tours</a>
+            </div>
+        {% else %}
         {% for tour in order.tours %}
-            <div class="row shadow-md my-row mb-3">
-                <div class="col-sm-10 card">
-                    <h5 class="card-header">{{tour.date.strftime("%d/%m/%Y")}}: {{tour.city.name}} {{tour.name}}</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-2">
-                                <img class="img-thumbnail" src="{{url_for('static', filename=('img/' + tour.image))}}">
+            <div class="row order_page">
+                <div class="col-12">
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <img class="card-img-top" class="img-thumbnail" src="{{url_for('static', filename=('img/' + tour.image))}}">
                             </div>
-                            <div class="col-10">
-                                <!-- Item Description -->
-                                <p class="card-text">{{tour.description}}</p>   
-                            </div>  
-                        </div>                      
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{tour.name}} in {{tour.city.name}} city | <strong>{{tour.date.strftime("%d/%m/%Y")}}</strong></h5>
+                                    <p class="card-text">{{tour.description}}</p>
+                                </div>
+                                <div class="card-body d-flex justify-content-between align-itmes-end">
+                                    <h5 class="mt-2">{{"$%.2f"|format(tour.price)}} Per Person</h5>
+                                    <form method="POST" action="{{url_for('main.deleteorderitem')}}">
+                                        <input type="hidden" id="id" name="id" value="{{tour.id}}">
+                                        <input type="submit" value="Delete" class="btn btn-primary">
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <br><br>
-                <!-- right column has price and delete button -->
-                <div class="col-sm-2">
-                <!-- delete item button -->
-                    <h5 class="mt-2">{{"$%.2f"|format(tour.price)}} pp</h5>
-                    <p>Quantity: {{tour.qty}}</p>
-                    <form method="POST" action="{{url_for('main.deleteorderitem')}}">
-                        <input type="hidden" id="id" name="id" value="{{tour.id}}">
-                        <input type="submit" value="Delete" class="btn btn-primary mb-3">
-                    </form> 
                 </div>
             </div>
         {% endfor %}
-        
-        <!-- total price and page controls -->
         <section>
-            <div class="row col-12 d-flex">
+            <div class="row col-12 d-flex justify-content-end">
                 <h5 class="mt-4">Quote = {{"$%.2f"|format(total_price)}}</h5>
             </div>
-            <div class="row col-12 d-flex mt-2 mb-4">
-                <a href="{{url_for('main.checkout')}}" class="btn btn-primary mr-4">Checkout</a>
+            <div class="row col-12 d-flex mt-2 mb-4 justify-content-end">
                 <a href="{{url_for('main.deleteorder')}}" class="btn btn-primary">Empty Basket</a>
+                <a href="{{url_for('main.checkout')}}" class="btn btn-primary ml-4">Checkout</a>
             </div>
         </section>
+        {% endif %}
     </div>
 </section>
 

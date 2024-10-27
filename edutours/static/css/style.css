@@ -34,3 +34,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.order_page {
+  img {
+    display: block;
+    width: 100%;
+    height: 204px;
+    object-fit: cover;
+  }
+}
