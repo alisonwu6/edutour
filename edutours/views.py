@@ -7,8 +7,6 @@ from . import db
 
 main_bp = Blueprint('main', __name__)
 
-
-
 @main_bp.route('/')
 def index():
     cities = db.session.scalars(db.select(City).order_by(City.id)).all()
@@ -125,7 +123,7 @@ def checkout():
             order.phone = form.phone.data
             total_cost = 0
             for tour in order.tours:
-                total_cost += (tour.price * tour.qty)
+                total_cost += (tour.price * 1)
             order.total_cost = total_cost
             order.date = datetime.now()
             try:
