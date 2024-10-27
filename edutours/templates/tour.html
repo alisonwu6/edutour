@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block main %}
+{% extends 'base.html' %} {% block main %}
 <div class="row">
   <div class="row detail_box">
     <div class="col-12 col-sm-6">
@@ -13,9 +12,21 @@
       <h3>{{tour.name}}</h3>
       <div class="desc pb-3">{{tour.description}}</div>
       <div class="">Price: ${{tour.price}}/per person</div>
-      <form class="ml-auto"action="{{url_for('main.order')}}">
-        <input type="hidden" id="tour_id" name="tour_id" value="{{tour.id}}">
-        <input class="btn btn-primary" type="submit" value="Add to cart">
+      <form
+        class="ml-auto"
+        action="{{url_for('main.order')}}"
+      >
+        <input
+          type="hidden"
+          id="tour_id"
+          name="tour_id"
+          value="{{tour.id}}"
+        />
+        <input
+          class="btn btn-primary"
+          type="submit"
+          value="Add to cart"
+        />
       </form>
     </div>
   </div>

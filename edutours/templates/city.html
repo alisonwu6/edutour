@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-{% block head %}
-{% if city %}
+{% extends 'base.html' %} {% block head %} {% if city %}
 <div
   class="jumbotron text-center jumbotron_bg"
   style="background-image: url('{{ url_for('static', filename= 'img/' + city.image) }}');"
@@ -10,9 +8,7 @@
 </div>
 {% else %}
 <h1 class="text-center my-5">Search Results</h1>
-{% endif %}
-{% endblock %}
-{% block main %}
+{% endif %} {% endblock %} {% block main %}
 <div class="row mt-5">
   {% for tour in tours%}
   <div class="col-12 col-sm-6 col-lg-4 mb-4">
